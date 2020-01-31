@@ -1,6 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
 const SnakeGameInterface = () => {
   return (
     <div className='go-snake'>
@@ -10,6 +7,10 @@ const SnakeGameInterface = () => {
   )
 }
 
-export default function renderSnakeGameInterface(element) {
-  ReactDOM.render(<SnakeGameInterface />, element)
+const render = () => {
+  const app = document.getElementById('app')
+
+  preact.render(<SnakeGameInterface />, app, app.lastElementChild)
 }
+
+render()

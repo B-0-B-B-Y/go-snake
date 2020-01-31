@@ -1,11 +1,18 @@
 package main
 
-import "github.com/zserge/webview"
+import (
+	"github.com/zserge/webview"
+)
 
 func main() {
-	snakeInterface := webview.New(webview.Settings { URL: "" })
+	snakeInterface := webview.New(webview.Settings{
+		Title: "React.js In Action",
+		Debug: true,
+	})
+	defer snakeInterface.Exit()
 
 	snakeInterface.Dispatch(func() {
-		snakeInterface.Eval()
+		loadUIFramework(snakeInterface)
 	})
+	snakeInterface.Run()
 }
