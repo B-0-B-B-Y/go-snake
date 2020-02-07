@@ -1,18 +1,27 @@
 package main
 
 import (
-	"github.com/zserge/webview"
+  "github.com/leaanthony/mewn"
+  "github.com/wailsapp/wails"
 )
 
-func main() {
-	snakeInterface := webview.New(webview.Settings{
-		Title: "React.js In Action",
-		Debug: true,
-	})
-	defer snakeInterface.Exit()
+func basic() string {
+  return "World!"
+}
 
-	snakeInterface.Dispatch(func() {
-		loadUIFramework(snakeInterface)
-	})
-	snakeInterface.Run()
+func main() {
+
+  js := mewn.String("./frontend/build/static/js/main.js")
+  css := mewn.String("./frontend/build/static/css/main.css")
+
+  app := wails.CreateApp(&wails.AppConfig{
+    Width:  1024,
+    Height: 768,
+    Title:  "go-snake",
+    JS:     js,
+    CSS:    css,
+    Colour: "#131313",
+  })
+  app.Bind(basic)
+  app.Run()
 }
