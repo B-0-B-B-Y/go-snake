@@ -1,0 +1,25 @@
+.menu {
+  padding: 32px;
+}
+
+.title {
+  margin-bottom: 48px;
+}
+
+.menu__list {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__item {
+  margin: 16px 0;
+  cursor: pointer;
+  width: fit-content;
+
+  &:hover {
+    color: gray;
+  }
+}
